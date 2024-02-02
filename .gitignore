@@ -1,0 +1,62 @@
+# Node.js and npm
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Output of ts-node
+.ts-node/
+
+# Visual Studio Code
+.vscode/
+.settings/
+
+# JetBrains IDEs
+.idea/
+
+# Compiled output
+dist/
+out/
+build/
+*.js
+*.js.map
+*.d.ts
+
+# Test output
+test-results/
+
+# Dependency directories
+.jest/
+.pnpm/
+.npm/
+.lock-wscript
+.lock-stfile
+.lock
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+*~
+
+# Editor-specific files
+*.swp
+*.swo
+*.swn
+
+# Miscellaneous
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Log files
+*.log
+logs/
+log.txt
