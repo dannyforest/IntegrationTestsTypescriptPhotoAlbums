@@ -1,6 +1,6 @@
 export class Album {
     private userId: number;
-    private readonly id: number;
+    private id: number;
     private title: string;
     private static readonly MIN_TITLE_LENGTH = 3;
 
