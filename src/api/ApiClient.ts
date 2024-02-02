@@ -19,13 +19,18 @@ export class ApiClient {
      */
     public async getAlbums(): Promise<Album[]> {
         try {
-            const response = await axios.get<Album[]>(`${this.baseUrl}/albums`) as AxiosResponse<Album[]>;
-            return response.data;
+            const response = await fetch(`${this.baseUrl}/albums`);
+            if (!response.ok) {
+                throw new Error(`Error fetching albums: ${response.status}`);
+            }
+            const albums = await response.json() as Album[];
+            return albums;
         } catch (error) {
             console.error('Error fetching albums:', error);
             throw error;
         }
     }
+
 
     /**
      * Retrieves photos from the API based on the albumId.
@@ -39,8 +44,14 @@ export class ApiClient {
     public async getPhotos(albumId?: number): Promise<Photo[]> {
         try {
             const url = albumId ? `${this.baseUrl}/albums/${albumId}/photos` : `${this.baseUrl}/photos`;
-            const response = await axios.get<Photo[]>(url) as AxiosResponse<Photo[]>;
-            return response.data;
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`Error fetching photos: ${response.status}`);
+            }
+
+            const photos = await response.json() as Photo[];
+            return photos;
         } catch (error) {
             console.error('Error fetching photos:', error);
             throw error;

@@ -1,14 +1,25 @@
 import {ApiClient} from "../ApiClient";
 
-jest.mock('axios');
+import fetchMock from "jest-fetch-mock";
+
+fetchMock.enableMocks();
 
 describe("ApiClient", () => {
+    beforeEach(() => {
+        fetchMock.resetMocks();
+    });
+
     describe("getAlbums()", () => {
-        it ('should get all albums', async () => {
+        it('should get all albums', async () => {
+            fetchMock.mockResponseOnce(JSON.stringify([
+                {
+                    "userId": 1,
+                    "id": 1,
+                    "title": "quidem molestiae enim"
+                }]));
             const apiClient = new ApiClient();
             const albums = await apiClient.getAlbums();
-            expect(albums).toBeDefined();
-            expect(albums.length).toBeGreaterThan(0);
+            expect(albums.length).toBe(1);
         })
     })
 })
