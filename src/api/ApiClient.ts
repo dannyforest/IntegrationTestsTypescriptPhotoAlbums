@@ -5,8 +5,10 @@ import { Photo } from '../models/Photo';
 export class ApiClient {
     private baseUrl: string = "https://jsonplaceholder.typicode.com";
 
-    constructor(baseUrl: string) {
-        this.baseUrl = baseUrl;
+    constructor(baseUrl?: string) {
+        if (baseUrl) {
+            this.baseUrl = baseUrl;
+        }
     }
 
     /**
