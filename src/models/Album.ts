@@ -20,6 +20,24 @@ export class Album {
     }
 
     /**
+     * Returns the user ID.
+     *
+     * @returns {number} The ID of the user.
+     */
+    getUserId(): number {
+        return this.userId;
+    }
+
+    /**
+     * Returns the title.
+     *
+     * @returns {string} The title.
+     */
+    getTitle(): string {
+        return this.title;
+    }
+
+    /**
      * Returns a formatted string containing information about the album.
      *
      * @returns {string} A formatted string containing the album ID, title, and user ID.
@@ -33,8 +51,8 @@ export class Album {
      *
      * @returns {boolean} - A boolean indicating if the title is valid or not.
      */
-    isTitleValid(): boolean {
-        return this.title.length > Album.MIN_TITLE_LENGTH;
+    isTitleValid(title: string): boolean {
+        return title.length > Album.MIN_TITLE_LENGTH;
     }
 
     /**
@@ -55,7 +73,7 @@ export class Album {
      * @returns {void}
      */
     setTitle(title: string): void {
-        if (!this.isTitleValid()) {
+        if (!this.isTitleValid(title)) {
             throw new Error('Invalid title');
         }
         this.title = title;
