@@ -3,7 +3,7 @@ import { Album } from '../models/Album';
 import { Photo } from '../models/Photo';
 
 export class ApiClient {
-    private baseUrl: string;
+    private baseUrl: string = "https://jsonplaceholder.typicode.com";
 
     constructor(baseUrl: string) {
         this.baseUrl = baseUrl;
